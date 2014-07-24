@@ -1,5 +1,12 @@
 // Variables
 // --------------------------------------------------
+
+@gray-darker:            lighten(#000, 13.5%); // #222
+@gray-dark:              lighten(#000, 20%);   // #333
+@gray:                   lighten(#000, 33.5%); // #555
+@gray-light:             lighten(#000, 46.7%); // #777
+@gray-lighter:           lighten(#000, 93.5%); // #eee
+
 @fullSize: 100%;
 
 @m10: 10px;
@@ -50,8 +57,20 @@
 //form
 @font-size-base: 14px;
 //** Default `.form-control` height
-@input-height-base:36px;
+@input-height-base:16px;
+@padding-base-vertical:10px;
+@padding-base-horizontal:10px;
+@line-height-base:16px;
+@input-color:@gray;
+@input-bg:#fff;
+@input-border:#ccc;
+@input-bg-disabled:@gray-lighter;
 //** Large `.form-control` height
+// color
+@bor-inp: #ccc;
+@foc-inp: #66afe9;
+
+@error: red;
 
 
 // Mixins
