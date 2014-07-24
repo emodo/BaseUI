@@ -1,0 +1,98 @@
+/*** GRID Module ***/
+/* Grids */
+.wrapper {
+  .main-wrapper;
+}
+
+[class*="col-"] {
+  .set-cols;
+}
+
+[class*="col-"] img {
+  max-width: 100%;
+  height: auto;
+}
+
+[class*="col-"]:last-child {
+  margin: 0;
+}
+
+.col-1  { width: @col1; }
+.col-2  { width: @col2; }
+.col-3  { width: @col3; }
+.col-4  { width: @col4; }
+.col-5  { width: @col5; }
+.col-6  { width: @col6; }
+.col-7  { width: @col7; }
+.col-8  { width: @col8; }
+.col-9  { width: @col9; }
+.col-10 { width: @col10; }
+.col-11 { width: @col11; }
+.col-12 { width: @col12; margin: 0; }
+
+/* Mobile */
+@media screen and (max-width: @mobile) {
+
+  [class*="col-"] {
+    width: @fullSize;
+  }
+
+  .hidden-mobile {
+    display:none; 
+  }
+
+  table, 
+  thead, 
+  tbody, 
+  th, 
+  td, 
+  tr, 
+  caption { 
+    display: block;
+  }
+    
+  thead tr {
+    display: none;
+  }   
+
+}
+
+.row { 
+  margin-bottom: @fontSizeH; 
+}
+
+/* Clear and Fixes */
+.wrapper {
+  &:after {
+  content: ""; 
+  display: table;  
+  height: 0; 
+  visibility: hidden;
+  clear: both;    
+  }
+}
+
+.clearfix, 
+.row {
+  zoom: 1;
+}
+
+.clearfix,
+.row {
+  &:before,
+  &:after {
+  content: ""; 
+  display: table;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  }
+}
+
+.clearfix,
+.row {
+  &:after {
+  font-size: 0;
+  clear: both;
+  }
+}
