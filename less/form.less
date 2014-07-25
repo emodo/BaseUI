@@ -13,6 +13,12 @@
   .box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
   .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
 
+  &:focus {
+    outline: none;
+    border-color: @input-border-focus;
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)");
+  }
+  
   // Disabled and read-only inputs
   //
   // HTML5 says that controls under a fieldset > legend:first-child won't be
@@ -32,32 +38,40 @@
   }
 }
 
+.form-group {
+  .clearfix;
+  margin-bottom: 15px;
+}
+
+// label
 .control-label {
-  line-height: 36px;
+  line-height: @input-height-base;
   .text-right;
-}
-
-label[class*="col-"] {
   margin-bottom: 0;
-  line-height: 36px;
 }
 
+label {
+  cursor: pointer;
+}
+
+// error
 .required {
   color: @error;
 }
 
+// 自定义checkbox/radio
 .radio,.checkbox {
   padding-left: 20px;
   position: relative;
   display: block;
-  line-height: 36px;
+  line-height: @input-height-base;
   span {
     position: absolute;
     width: 14px;
     height: 14px;
     top: 50%;
     margin-top: -7px;
-    border: 1px solid @bor-inp;
+    border: 1px solid @input-border;
     left: 0;
     text-align: center;
   }
@@ -69,12 +83,9 @@ label[class*="col-"] {
   input {
     display: none;
   }
-  &.inline {
-    float: left;
-    margin-right: 10px;
-  }
 }
 
+// checkbox/radio选中时的样式
 .radio {
   span {
     .border-radius(100%);
@@ -86,7 +97,7 @@ label[class*="col-"] {
   input {
     &:checked + span {
       i {
-        background-color: @foc-inp;
+        background-color: @input-border-focus;
       }
     }
   }
@@ -105,31 +116,81 @@ label[class*="col-"] {
     &:checked + span {
       font-size: 14px;
     }
+    &:disabled + span {
+      background-color: @input-border;
+    }
+  }
+}
+
+.disabled {
+  cursor: not-allowed;
+}
+
+// checkbox/radio在一行显示
+.inline {
+  .radio,.checkbox {
+    float: left;
+    margin-right: 15px;
+  }
+}
+
+// 状态切换开关
+.checkbox-switch {
+  display: table-cell;
+  height: 36px;
+  vertical-align: middle;
+  label {
+    display: block;
+    height: 100%;
+    width: 60px;
+    height: 20px;
+    .border-radius(10px);
+    background-color: @input-border;
+    position: relative;
+  }
+  input {
+    display: none;
+    &:checked + span {
+      .translate(24px;0);
+    }
+  }
+  span {
+    width: 36px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: inline-block;
+    background-color: green;
+    .border-radius(10px);
+    .transition(transform ease .2s);
   }
 }
 
 // 带有图标的input
-.inp-ico {
+.inp-fa {
   position: relative;
-  .ico {
+  .fa {
     position: absolute;
     left: 0;
     top: 0;
     font-size: 14px;
-    line-height: 36px;
+    line-height: @input-height-base;
     text-align: center;
     width: 30px;
     height: 100%;
-    color: @bor-inp;
+    color: @input-border;
     background: green;
+    .border-radius(@border-radius-base 0 0 @border-radius-base);
   }
   input {
     padding-left: 30px;
   }
   &.right {
-    .ico {
+    .fa {
       right: 0;
       left: auto;
+      .border-radius(0 @border-radius-base @border-radius-base 0);
     }
     input {
       padding-left: 10px;
@@ -138,5 +199,43 @@ label[class*="col-"] {
   }
   .inp-addon {
     text-align: left;
+  }
+}
+
+
+.btn {
+  .border-radius;
+  background-color: @btn-default-bg;
+  &:focus {
+    outline: none;
+  }
+}
+// 带button的搜索框
+.inp-btn {
+  margin-left: 60px;
+  position: relative;
+  .form-control {
+    .border-radius(0 4px 4px 0);
+  }
+  .btn {
+    position: absolute;
+    width: 60px;
+    left: -60px;
+    top: 0;
+    line-height: @input-height-base;
+    background-color: @input-border;
+    .border-radius(4px 0 0 4px);
+  }
+  &.right {
+    margin-right: 60px;
+    margin-left: 0;
+    .form-control {
+      .border-radius(4px 0 0 4px);
+    }
+    .btn {
+      .border-radius(0 4px 4px 0);
+      right: -60px;
+      left: auto;
+    }
   }
 }

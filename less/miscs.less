@@ -252,16 +252,25 @@ caption {
   overflow: hidden;
 }
 
-// transition
-.transition(@transition) {
-  -webkit-transition: @transition;
-  transition: @transition;
-}
+
 
 // box-shadow
 .box-shadow(@shadow) {
   -webkit-box-shadow: @shadow;
   box-shadow: @shadow;
+}
+
+// animation
+.transition(@transition) {
+  -webkit-transition: @transition;
+  transition: @transition;
+}
+
+.translate(@x; @y) {
+  -webkit-transform: translate(@x, @y);
+      -ms-transform: translate(@x, @y); // IE9 only
+       -o-transform: translate(@x, @y);
+          transform: translate(@x, @y);
 }
 
 
