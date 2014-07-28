@@ -39,25 +39,25 @@
 	}
 	.front {
 		z-index: 10;
-		opacity: 1;
+		.opacity(1);
 		transform: rotateY(0deg);
 		background-color: yellow;
 	}
 	.back {
 		z-index: 5;
-		opacity: 0;
+		.opacity(0);
 		transform: rotateY(-180deg);
 		background-color: gray;
 	}
 	&:hover {
 		.front {
 			z-index: 5;
-			opacity: 0;
+			.opacity(0);
 			transform: rotateY(180deg);
 		}
 		.back {
 			z-index: 10;
-			opacity: 1;
+			.opacity(1);
 			transform: rotateY(0deg);
 		}
 	}

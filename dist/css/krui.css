@@ -794,23 +794,27 @@ label {
 .turn .front {
   z-index: 10;
   opacity: 1;
+  filter: alpha(opacity=100);
   transform: rotateY(0deg);
   background-color: yellow;
 }
 .turn .back {
   z-index: 5;
   opacity: 0;
+  filter: alpha(opacity=0);
   transform: rotateY(-180deg);
   background-color: gray;
 }
 .turn:hover .front {
   z-index: 5;
   opacity: 0;
+  filter: alpha(opacity=0);
   transform: rotateY(180deg);
 }
 .turn:hover .back {
   z-index: 10;
   opacity: 1;
+  filter: alpha(opacity=100);
   transform: rotateY(0deg);
 }
 /*# sourceMappingURL=krui.css.map */
