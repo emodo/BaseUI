@@ -1,0 +1,68 @@
+// 三角图标
+.triangle(@borW: 10px;@color: @triangleColor) {
+	width: 0;
+	height: 0;
+	border: @borW solid transparent;
+	&&-top {
+		border-bottom-color: @color;
+	}
+	&&-right {
+		border-left-color: @color;
+	}
+	&&-bottom {
+		border-top-color: @color;
+	}
+	&&-left {
+		border-right-color: @color;
+	}
+}
+
+.triangle {
+	.triangle;
+}
+
+// 翻转
+.turn(@w: 300px;@h: 300px;) {
+	position: relative;
+	width: @w;
+	height: @h;
+	> div {
+		position: absolute;
+		display: table-cell;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		vertical-align: middle;
+		transition: all .4s ease 0s;		
+	}
+	.front {
+		z-index: 10;
+		opacity: 1;
+		transform: rotateY(0deg);
+		background-color: yellow;
+	}
+	.back {
+		z-index: 5;
+		opacity: 0;
+		transform: rotateY(-180deg);
+		background-color: gray;
+	}
+	&:hover {
+		.front {
+			z-index: 5;
+			opacity: 0;
+			transform: rotateY(180deg);
+		}
+		.back {
+			z-index: 10;
+			opacity: 1;
+			transform: rotateY(0deg);
+		}
+	}
+}
+
+.turn {
+	.turn;
+}
