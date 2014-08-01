@@ -161,7 +161,7 @@ label {
     left: 0;
     top: 0;
     display: inline-block;
-    background-color: green;
+    background-color: @fa-bg;
     .border-radius(10px);
     .transition(transform ease .2s);
   }
@@ -180,7 +180,7 @@ label {
     width: 30px;
     height: 100%;
     color: @input-border;
-    background: green;
+    background-color: @fa-bg;
     .border-radius(@border-radius-base 0 0 @border-radius-base);
   }
   input {
@@ -210,11 +210,12 @@ label {
     .border-radius(0 4px 4px 0);
   }
   .btn {
+    @line-height: @input-height-base - 2 * @input-padding-vertical;
     position: absolute;
     width: 60px;
     left: -60px;
     top: 0;
-    line-height: @input-height-base;
+    line-height: @line-height;
     background-color: @input-border;
     .border-radius(4px 0 0 4px);
   }

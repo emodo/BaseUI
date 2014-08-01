@@ -22,7 +22,7 @@
 }
 
 // 翻转
-.turn(@w: 300px;@h: 300px;) {
+.turn(@w: 100px;@h: 100px;) {
 	position: relative;
 	width: @w;
 	height: @h;
@@ -66,3 +66,85 @@
 .turn {
 	.turn;
 }
+
+// portlet
+.portlet {
+	header {
+		padding: 10px;
+		background-color: #ccc;
+		line-height: 20px;
+		h3 {
+			float: left;
+			margin: 0;
+		}
+		.comps {
+			float: right;
+		}
+	}
+}
+
+// 同心圆进度条
+.circle-progress(@w: 280px;@h: 280px;@cellspacing: 10px) {
+	position: relative;
+	width: @w;
+	height: @h;
+	background-color: #ccc;
+	.border-radius(100%);
+	.round {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		.border-radius(100%);
+		clip: rect(0 @w/2 @h 0);
+		&.half {
+			.pie1 {
+				z-index: 10;
+			}
+			.pie2 {
+
+			}
+		}
+		&.around {
+			.pie2 {
+				z-index: 10;
+			}
+		}
+		&.gl {
+			clip: rect(auto auto auto auto);
+		}
+	}
+	.pie {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: blue;
+		left: 0;
+		top: 0;
+		.border-radius(100%);
+		clip: rect(0, @w, @h, @w/2);
+	}
+	.con {
+		width: @w - 2 * @cellspacing;
+		height: @h - 2 * @cellspacing;
+		background-color: #fff;
+		.border-radius(100%);
+		position: absolute;
+		left: @cellspacing;
+		top: @cellspacing;
+		z-index: 10;
+		display: table;
+		text-align: center;
+	}
+	.con-inner {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.circle-progress {
+	.circle-progress;
+}
+
+

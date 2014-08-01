@@ -15,13 +15,13 @@
 
     <!-- Custom styles for this template -->
     <link href="dist/css/starter-template.css" rel="stylesheet">
-
-
+    
+    <script src="scripts/jquery-1.11.0.min.js"></script>
+  
   </head>
 
   <body>
 		<div class="wrapper">
-    <input type="text" class="form-control">
       <h1>head</h1>
       <h2>head</h2>
       <h3>head</h3>
@@ -266,12 +266,64 @@
 
       <h2>按钮</h2>
       <div class="wrapper">
-        
+        <div class="row">
+          <a href="#" class="btn">Default</a>
+          <a href="javascript:;" class="btn disabled">Default</a>
+        </div>
+        <div class="row">
+          <a href="#" class="btn btn-block">btn block</a>
+        </div>
+        <div class="row">
+          <a href="#" class="btn fa-front-btn"> Default</a>
+          <a href="#" class="btn fa-after-btn">Default </a>
+        </div>
       </div>
+      
 
       <h2>其他</h2>
       <div class="wrapper">
+        <!-- portlet -->
+        <h3>panel</h3>
+        <div class="portlet">
+          <header class="clearfix">
+            <h3>这里是标题</h3>
+            <div class="comps">这里存放一些小操作</div>
+          </header>
+          <div class="panel-body">内容主体</div>
+          <footer>内容底部</footer>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <h3>圆形进度条</h3>
+        <div class="row">
+          <div class="col-3">
+            <div class="circle-progress" data-val="80">
+              <div class="round">
+                <div class="pie pie1"></div>
+                <div class="pie pie2"></div>
+              </div>
+              <div class="con">
+                <div class="con-inner">内容一</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="circle-progress" data-val="30">
+              <div class="round">
+                <div class="pie pie1"></div>
+                <div class="pie pie2"></div>
+              </div>
+              <div class="con">
+                <div class="con-inner">内容一</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
         <!-- 小三角 -->
+        <h3>三角</h3>
         <ul>
           <li class="triangle triangle-top"></li>
           <li class="triangle triangle-right"></li>
@@ -279,11 +331,14 @@
           <li class="triangle triangle-left"></li>
         </ul>
         <!-- 翻转 -->
+        <h3>翻转</h3>
         <div class="turn">
           <div class="front">正面</div>
           <div class="back">反面</div>
         </div>
       </div>
     </div>
+    <script src="scripts/base.funs.js"></script>
+    <script src="scripts/base.events.js"></script>
   </body>
 </html>

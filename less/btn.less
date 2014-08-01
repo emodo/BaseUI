@@ -1,7 +1,35 @@
 .btn {
-  .border-radius;
-  background-color: @btn-default-bg;
-  &:focus {
-    outline: none;
-  }
+	display: inline-block;
+	.border-radius;
+	background-color: @btn-default-bg;
+	padding: @input-padding-vertical @input-padding-horizontal;
+	text-decoration: none;
+	line-height: 1.14;
+	cursor: pointer;
+	text-align: center;
+	color: @white;
+	&:focus {
+		outline: none;
+	}
+	&.disabled {
+		.opacity(.6);
+		cursor: non-allowed;
+	}
+	&.btn-block {
+		width: 100%;
+	}
+	&:before,&:after {
+		display: inline-block;
+		line-height: 1.14;
+	}
+	&.fa-front-btn {
+		&:before {
+			content: "+";
+		}
+	}
+	&.fa-after-btn {
+		&:after {
+			content: "*";
+		}
+	}
 }
