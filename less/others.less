@@ -67,6 +67,24 @@
 	.turn;
 }
 
+// 带横线的标题		
+.tit-line {
+	border-top: 1px solid @baseColor;
+	margin-top: @fontSizeG / 2;
+	h4 {
+		position: relative;
+		top: -@fontSizeG / 2;
+		background-color: @white;
+		display: inline-block;
+	}
+	&.right {
+		text-align: right;
+	}
+	&.center {
+		text-align: center;
+	}
+}
+
 // portlet
 .portlet {
 	header {
@@ -146,5 +164,60 @@
 .circle-progress {
 	.circle-progress;
 }
+
+// 图形
+.square {
+	width: 100px;
+	height: 100px;
+	background-color: @graph;
+}
+.rectangle {
+	width: 200px;
+	height: 100px;
+	background-color: @graph;
+}
+.trapezoid {
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 100px solid @graph;
+	width: 100px;
+	height: 0;
+}
+.parallelogram {
+	width: 200px;
+	height: 100px;
+	background-color: @graph;
+	transform: skew(-20deg);
+}
+
+.triangle-left-top {
+	border: 100px solid @graph;
+	border-right: 100px solid transparent;
+	border-bottom: 100px solid transparent;
+	width: 100px;
+	height: 0;
+}
+.triangle-left-bottom {
+	border: 100px solid @graph;
+	border-right: 100px solid transparent;
+	border-top: 100px solid transparent;
+	width: 100px;
+	height: 0;
+}
+.triangle-right-top {
+	border: 100px solid @graph;
+	border-left: 100px solid transparent;
+	border-bottom: 100px solid transparent;
+	width: 100px;
+	height: 0;
+}
+.triangle-right-bottom {
+	border: 100px solid @graph;
+	border-top: 100px solid transparent;
+	border-left: 100px solid transparent;
+	width: 100px;
+	height: 0;
+}
+
 
 

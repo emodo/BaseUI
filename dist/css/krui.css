@@ -831,6 +831,22 @@ label {
   filter: alpha(opacity=100);
   transform: rotateY(0deg);
 }
+.tit-line {
+  border-top: 1px solid #000000;
+  margin-top: 0.65em;
+}
+.tit-line h4 {
+  position: relative;
+  top: -0.65em;
+  background-color: #ffffff;
+  display: inline-block;
+}
+.tit-line.right {
+  text-align: right;
+}
+.tit-line.center {
+  text-align: center;
+}
 .portlet header {
   padding: 10px;
   background-color: #ccc;
@@ -897,5 +913,56 @@ label {
 .circle-progress .con-inner {
   display: table-cell;
   vertical-align: middle;
+}
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: #666699;
+}
+.rectangle {
+  width: 200px;
+  height: 100px;
+  background-color: #666699;
+}
+.trapezoid {
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 100px solid #666699;
+  width: 100px;
+  height: 0;
+}
+.parallelogram {
+  width: 200px;
+  height: 100px;
+  background-color: #666699;
+  transform: skew(-20deg);
+}
+.triangle-left-top {
+  border: 100px solid #666699;
+  border-right: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  width: 100px;
+  height: 0;
+}
+.triangle-left-bottom {
+  border: 100px solid #666699;
+  border-right: 100px solid transparent;
+  border-top: 100px solid transparent;
+  width: 100px;
+  height: 0;
+}
+.triangle-right-top {
+  border: 100px solid #666699;
+  border-left: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  width: 100px;
+  height: 0;
+}
+.triangle-right-bottom {
+  border: 100px solid #666699;
+  border-top: 100px solid transparent;
+  border-left: 100px solid transparent;
+  width: 100px;
+  height: 0;
 }
 /*# sourceMappingURL=krui.css.map */
