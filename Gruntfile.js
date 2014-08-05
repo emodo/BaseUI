@@ -7,6 +7,8 @@ module.exports = function(grunt) {
 			' * Copyright 2014-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
 			' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
 			' */\n',
+			// NOTE: This jqueryCheck code is duplicated in customizer.js; if making changes here, be sure to update the other copy too.
+    	jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'BaseUI\\\'s JavaScript requires jQuery\') }\n\n',
 		clean: {
 			dist: ['dist']
 		},
@@ -64,6 +66,35 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		jshint: {
+			options: {
+				jshintrc: 'scripts/.jshintrc'
+			},
+			src: ['scripts/base.funs.js','scripts/base.events.js']
+		},
+		concat: {
+			options: {
+				banner: '<%= banner %>\n<%= jqueryCheck %>',
+				stripBanners: false
+			},
+			baseui: {
+				src: [
+					'scripts/jquery-1.11.1.js',
+					'scripts/base.funs.js',
+					'scripts/base.events.js'
+				],
+				dest: 'dist/js/<%= pkg.name %>.js'
+			}
+		},
+		uglify: {
+			options: {
+				preserveComments: 'some'
+			},
+			baseui: {
+				src: '<%= concat.baseui.dest %>',
+				dest: 'dist/js/<%= pkg.name %>.min.js'
+			}
+		},
 		usebanner: {
 			options: {
 				position: 'top',
@@ -92,19 +123,32 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
+			src: {
+				files: '<%= jshint.src %>',
+				tasks: ['jshint:src']
+			},
 			less: {
-				files: ['less/*.less','less/template/*.less'],
-				tasks: ['less','cssmin']
+				files: ['less/*.less', 'less/template/*.less'],
+				tasks: ['less', 'cssmin']
 			}
 		}
 	})
-	require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
+
+	// These plugins provide necessary tasks.
+	require('load-grunt-tasks')(grunt, {
+		scope: 'devDependencies'
+	});
 	require('time-grunt')(grunt);
+
 	// CSS distribution task.
-	grunt.registerTask('less-compile', ['less:compileCore']);
-	grunt.registerTask('dist-css', ['less-compile', 'autoprefixer', 'usebanner', 'csscomb', 'cssmin']);
+	grunt.registerTask('dist-css', ['less:compileCore', 'autoprefixer', 'usebanner', 'csscomb', 'cssmin']);
+
+	// JS distribution task.
+	grunt.registerTask('test', ['csslint', 'jshint']);
+	grunt.registerTask('dist-js', ['concat', 'uglify']);
+
 	// Full distribution task.
-	grunt.registerTask('dist', ['clean', 'dist-css', 'copy:fonts','watch']);
+	grunt.registerTask('dist', ['clean', 'dist-css', 'copy:fonts','dist-js','test', 'watch' ]);
 
 	// Default task.
 	grunt.registerTask('default', ['dist']);
