@@ -1,7 +1,9 @@
 @import "../svg/assets/baseui.less";
-@import "../../less/template/monokai_sublime.min.css";
+@import "../../less/template/tomorrow.less";
 body{
 	padding-left: 240px;
+	font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+	color: #333;
 }
 a{
 	color: #CECECE;
@@ -19,6 +21,7 @@ a{
 	width: 240px;
 	header{
 		background: #333C46;
+
 		h1 a{
 			display: inline-block;
 			margin: 10px 0;
@@ -27,12 +30,14 @@ a{
 	ul{
 		padding-left: 20px;
 		a{
-
+			display: block;
+			padding: 5px 24px;
+			transition:color .2s ease-out;
 		}
 	}
 }
 .logo{
-	padding-top: 50px;
+	padding-top: 20px;
 	a{
 		display: inline-block;
 	}
@@ -43,6 +48,9 @@ a{
 	margin-top: 20px;
 	color: #C1CCDD;
 }
+.stripe {
+	padding: 88px 72px;
+}
 .main-content{
 	background: #ECECEC;
 	padding: 60px;
@@ -51,8 +59,15 @@ a{
 	}
 }
 .header{
-	height: 380px;
+	padding: 60px;
 }
 .m-a20{
 	padding: 20px;
+}
+.demorow{
+	background: #ccc;
+	div{
+		border: 1px solid #000;
+	}
+	
 }

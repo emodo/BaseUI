@@ -14,15 +14,17 @@
 		<link href="dist/css/krui.min.css" rel="stylesheet">
 		<!-- Custom styles for this template -->
 		<link href="dist/css/starter-template.css" rel="stylesheet">
-		
 	</head>
 
-	<body>
+	<body onload="prettyPrint()">
 		<nav class="nav">
 			<header>
 					<h1 class="text-center "><a class="baseui-logo_small" href="#"></a></h1>
 			</header>
 			<ul>
+				<li>
+					<a href="#">Getting Started</a>
+				</li>
 				<li>
 					<a href="#gird">
 						Gird
@@ -38,9 +40,45 @@
 		<header class="header">
 			<h2 class="logo text-center"><a class="baseui-logo" href="#"></a></h2>
 			<h4 class="subtitle text-center">An extensible library</h4>
+			<div class="text-center">
+				<a class="btn blue" href="https://github.com/emodo/BaseUI/archive/master.zip">BaseUI.zip</a>
+				<a class="btn red" href="https://github.com/emodo/BaseUI">Get Via Github</a>
+				
+			</div>
 		</header>
 		<section class="main-content">
-			<section>
+			<section class="m-a20">
+				<h3 class="">Getting Started</h3>
+				<p>你可以直接引用CSS和JS</p>
+<pre class="prettyprint linenums">
+<link href="dist/css/krui.min.css" rel="stylesheet">
+<script src="dist/js/krui.min.js"></script>
+</pre>
+				<p >或者下载源码并使用Grunt进行编译</p>
+<pre class="prettyprint ">
+#    grunt
+</pre>				
+			</section>
+			<section class="m-a20">
+			<h3>Gird</h3>
+			<p>12栅格也很方便</p>
+<pre class="prettyprint linenums">
+<div class="row">
+	<div class="col-1"></div>
+	<div class="col-2"></div>
+	<div class="col-3"></div>
+	<div class="col-4"></div>
+	...
+	<div class="col-12"></div>
+</div>
+</pre>
+				<div class="row demorow">
+					<div class="col-1">col-1</div>
+					<div class="col-2">col-2</div>
+					<div class="col-3">col-3</div>
+					<div class="col-4">col-4</div>
+					<div class="col-2">col-2</div>
+				</div>
 				<div class="m-a20">
 					<h1>head</h1>
 					<h2>head</h2>
@@ -49,15 +87,13 @@
 					<h5>head</h5>
 				</div>
 				<div class="highlight">
-					<pre>
-						<code class="html">
-	<h1>head</h1>
-	<h2>head</h2>
-	<h3>head</h3>
-	<h4>head</h4>
-	<h5>head</h5>
-						</code>
-					</pre>
+<pre class="prettyprint linenums">
+<h1>head</h1>
+<h2>head</h2>
+<h3>head</h3>
+<h4>head</h4>
+<h5>head</h5>
+</pre>
 				</div>
 				<div class="row">
 					<div class="col-6">
@@ -78,26 +114,22 @@
 				
 				<div class="row">
 					<div class="highlight col-6">
-						<pre>
-							<code class="html">
+<pre class="prettyprint linenums">
 <ul>
-	<li>dsa</li>
-	<li>dsa</li>
-	<li>dsa</li>
+    <li>dsa</li>
+    <li>dsa</li>
+    <li>dsa</li>
 </ul>
-							</code>
-						</pre>
+</pre>
 					</div>
 					<div class="highlight col-6">
-						<pre>
-							<code class="html">
+<pre class="prettyprint linenums">
 <ol>
-	<li>dsa</li>
-	<li>dsa</li>
-	<li>dsa</li>
+    <li>dsa</li>
+    <li>dsa</li>
+    <li>dsa</li>
 </ol>
-							</code>
-						</pre>
+</pre>
 					</div>
 				</div>
 				<table class="table">
@@ -456,16 +488,15 @@
 			</section>
 		</section>
 		<script src="dist/js/krui.min.js"></script>
-		<script src="scripts/highlight.min.js"></script>
+		<script src="scripts/prettify.js"></script>
+		<script src="scripts/lang-css.js"></script>
 		<script>
-			$("pre").each(function(index, el) {
-				$(el).find('code').text($(el).find('code').html());
+		function strHtml(s) {
+		    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+		  }
+		  $("pre").each(function(index, el) {
+				$(el).html(strHtml($(el).html()));
 			});
-			hljs.configure({
-				  tabReplace: '    ', // 4 spaces
-				
-				})
-			hljs.initHighlightingOnLoad();
 		</script>
 	</body>
 </html>

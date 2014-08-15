@@ -45,6 +45,7 @@ h6 {
   line-height: 1em;
   margin-bottom: 0.5em;
   word-wrap: break-word;
+  font-weight: 300;
 }
 h1 {
   font-size: 3em;
@@ -418,7 +419,7 @@ caption {
 [class*="col-"] {
   float: left;
   display: block;
-  margin: 0 2% 2% 0;
+  padding: 0 15px 0 15px;
 }
 [class*="col-"] img {
   max-width: 100%;
