@@ -3,9 +3,6 @@
  * Copyright 2014-2014 emodo
  * Licensed under MIT (https://github.com/emodo/krui/LICENSE)
  */
-
-if (typeof jQuery === 'undefined') { throw new Error('BaseUI\'s JavaScript requires jQuery') }
-
 /*!
  * jQuery JavaScript Library v1.11.1
  * http://jquery.com/

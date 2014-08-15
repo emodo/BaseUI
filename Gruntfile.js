@@ -7,10 +7,9 @@ module.exports = function(grunt) {
 			' * Copyright 2014-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
 			' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
 			' */\n',
-			// NOTE: This jqueryCheck code is duplicated in customizer.js; if making changes here, be sure to update the other copy too.
-    	jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'BaseUI\\\'s JavaScript requires jQuery\') }\n\n',
 		clean: {
-			dist: ['dist']
+			dist: ['dist'],
+			svg:['less/svg']
 		},
 		less: {
 			compileCore: {
@@ -74,7 +73,7 @@ module.exports = function(grunt) {
 		},
 		concat: {
 			options: {
-				banner: '<%= banner %>\n<%= jqueryCheck %>',
+				banner: '<%= banner %>',
 				stripBanners: false
 			},
 			baseui: {
@@ -131,6 +130,13 @@ module.exports = function(grunt) {
 				files: ['less/*.less', 'less/template/*.less'],
 				tasks: ['less', 'cssmin']
 			}
+		},
+		svgcompactor: {
+		  all: {
+		    source: 'img',
+		    target: 'less/svg',
+		    outputname: 'baseui'
+		  }
 		}
 	})
 
@@ -146,9 +152,9 @@ module.exports = function(grunt) {
 	// JS distribution task.
 	grunt.registerTask('test', ['csslint', 'jshint']);
 	grunt.registerTask('dist-js', ['concat', 'uglify']);
-
+	grunt.registerTask('svg', ['clean:svg','svgcompactor']);
 	// Full distribution task.
-	grunt.registerTask('dist', ['clean', 'dist-css', 'copy:fonts','dist-js','test', 'watch' ]);
+	grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts','dist-js','test', 'watch' ]);
 
 	// Default task.
 	grunt.registerTask('default', ['dist']);

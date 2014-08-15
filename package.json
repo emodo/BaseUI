@@ -48,7 +48,8 @@
     "time-grunt": "~0.3.2",
     "grunt-csscomb": "~2.0.1",
     "grunt-contrib-jshint": "~0.10.0",
-    "grunt-jscs-checker": "~0.6.0"
+    "grunt-jscs-checker": "~0.6.0",
+    "grunt-svg-compactor": "~1.0.4"
   },
   "engines": {
     "node": "~0.10.1"
