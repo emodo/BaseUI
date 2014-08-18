@@ -26,10 +26,10 @@
   position: relative;
 }
 
-.set-cols (@r: 15px, @l: 15px){
+.set-cols (@t:6px,@r: 15px,@b:6px, @l: 15px){
   float: left; 
   display: block; 
-  padding: 0 @r  0 @l; 	
+  padding: @t @r  @b @l; 	
 }
 /* Aligns & Formats */
 .fl {
@@ -311,5 +311,17 @@ caption {
 .rotate(@degrees) {
 	transform: rotate(@degrees);
 }
-
+.clearfix()
+{
+    *zoom:1;
+    &:before, &:after
+    {
+        content:"";
+        display:table;
+    }
+    &:after
+    {
+        clear:both;
+    }
+}
 

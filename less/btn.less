@@ -32,5 +32,11 @@
 			content: "*";
 		}
 	}
-	
+	&:hover,
+	  &:focus,
+	  &:active,
+	  &.active,
+	  .open > .dropdown-toggle& {
+	    background-color: darken(@btn-default-bg, 10%);
+	  }
 }

@@ -166,42 +166,6 @@ label {
     .transition(transform ease .2s);
   }
 }
-
-// 带有图标的input
-.inp-fa {
-  position: relative;
-  .fa {
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 14px;
-    line-height: @input-height-base;
-    text-align: center;
-    width: 30px;
-    height: 100%;
-    color: @input-border;
-    background-color: @fa-bg;
-    .border-radius(@border-radius-base 0 0 @border-radius-base);
-  }
-  input {
-    padding-left: 40px;
-  }
-  &.right {
-    .fa {
-      right: 0;
-      left: auto;
-      .border-radius(0 @border-radius-base @border-radius-base 0);
-    }
-    input {
-      padding-left: 10px;
-      padding-right: 40px;
-    }
-  }
-  .inp-addon {
-    text-align: left;
-  }
-}
-
 // 带button的搜索框
 .inp-btn {
   margin-left: 60px;
