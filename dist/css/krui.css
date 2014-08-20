@@ -408,6 +408,17 @@ caption {
   display: inline-block;
   font-size: 0.85;
 }
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
 /*** GRID Module ***/
 /* Grids */
 .wrapper {
@@ -545,6 +556,36 @@ caption {
 .btn.active,
 .open > .dropdown-toggle.btn {
   background-color: #217dbb;
+}
+.btn.grey {
+  background-color: #c3c3c3;
+}
+.btn.black {
+  background-color: #000;
+}
+.btn.aqua {
+  background-color: #3ca18f;
+}
+.btn.blue {
+  background-color: #217dbb;
+}
+.btn.green {
+  background-color: #5bb978;
+}
+.btn.orange {
+  background-color: #FFB745;
+}
+.btn.pink {
+  background-color: #F3445B;
+}
+.btn.purple {
+  background-color: #9b59b6;
+}
+.btn.red {
+  background-color: #EB3D2B;
+}
+.btn.yellow {
+  background-color: #EBBA21;
 }
 .form-control {
   display: block;
@@ -795,33 +836,36 @@ label {
   filter: alpha(opacity=100);
   transform: rotateY(0deg);
 }
-.tit-line {
-  border-top: 1px solid #000000;
-  margin-top: 0.65em;
-}
-.tit-line h4 {
-  position: relative;
-  top: -0.65em;
-  background-color: #ffffff;
-  display: inline-block;
-}
-.tit-line.right {
-  text-align: right;
-}
-.tit-line.center {
-  text-align: center;
+.portlet {
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
 }
 .portlet header {
   padding: 10px;
-  background-color: #ccc;
   line-height: 20px;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  background-color: #f5f5f5;
+  *zoom: 1;
+}
+.portlet header:before,
+.portlet header:after {
+  content: "";
+  display: table;
+}
+.portlet header:after {
+  clear: both;
 }
 .portlet header h3 {
   float: left;
   margin: 0;
+  font-size: 16px;
 }
 .portlet header .comps {
   float: right;
+}
+.portlet .panel-body {
+  padding: 15px;
 }
 .circle-progress {
   position: relative;
